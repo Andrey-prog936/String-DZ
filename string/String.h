@@ -23,6 +23,7 @@ public:
 	String(const String& other);
 	~String();
 	void Print() const;
+	void Append(const char* str);
 	void operator+=(const String& str);
 	String operator+(const String& str) const;
 	String operator*(const String& str) const;

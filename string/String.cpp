@@ -34,15 +34,25 @@ String String::operator+(const String& str) const
 	res += str;
 	return res;
 }
-/////sd/sd/s/dsd/s/dw/dasf/dsg/sdg/sgds/gds//sds/g
+void String::Append(const char* str)
+{
+	length = this->length + strlen(str);
+	char* newStr = new char[length + 1];
+
+	strcpy_s(newStr, length + 1, this->str);
+	strcat_s(newStr, length + 1, str);
+
+	delete[] this->str;
+	this->str = newStr;
+}
+///////////////////////////////////////
 String String::operator*(const String& tmp) const
 {
-
 	char temp[30] = {};
 	int a = 0;
 	for (int i = 0; i < this->length; i++)
 	{
-		for (int j = 0; j < length; j++)
+		for (int j = 0; j < tmp.length; j++)
 		{
 			if (str[i] == tmp.str[j])
 			{
